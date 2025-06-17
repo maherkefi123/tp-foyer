@@ -9,6 +9,35 @@
             </elementProp>
             <stringProp name="TestPlan.user_defined_sampler">false</stringProp>
         </TestPlan>
-        <hashTree/>
+        <hashTree>
+            <!-- Thread Group (Utilisateurs virtuels) -->
+            <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+                <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+                <elementProp name="ThreadGroup.main_controller" elementType="LoopController">
+                    <stringProp name="LoopController.loops">-1</stringProp>
+                </elementProp>
+                <intProp name="ThreadGroup.num_threads">100</intProp> <!-- Nombre d’utilisateurs -->
+                <intProp name="ThreadGroup.ramp_time">600</intProp> <!-- Temps de montée -->
+                <longProp name="ThreadGroup.start_time">1677759923000</longProp>
+                <longProp name="ThreadGroup.end_time">1677759923000</longProp>
+            </ThreadGroup>
+            <hashTree>
+                <!-- HTTPSamplerProxy (Test API) -->
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="API Request" enabled="true">
+                    <stringProp name="HTTPSampler.domain">your-api-domain.com</stringProp> <!-- Remplace par ton domaine -->
+                    <stringProp name="HTTPSampler.port">8080</stringProp> <!-- Port de ton API -->
+                    <stringProp name="HTTPSampler.path">/api-endpoint</stringProp> <!-- Endpoint de ton API -->
+                    <stringProp name="HTTPSampler.method">GET</stringProp> <!-- Méthode HTTP -->
+                    <stringProp name="HTTPSampler.embedded_url_re"/> <!-- URL pour les ressources embarquées -->
+                </HTTPSamplerProxy>
+                <hashTree/>
+            </hashTree>
+            <!-- Résumé des résultats -->
+            <hashTree>
+                <SummaryReport guiclass="SummaryReportGui" testclass="SummaryReport" testname="Summary Report" enabled="true">
+                    <stringProp name="filename">results.jtl</stringProp> <!-- Fichier de résultats -->
+                </SummaryReport>
+            </hashTree>
+        </hashTree>
     </hashTree>
 </jmeterTestPlan>
