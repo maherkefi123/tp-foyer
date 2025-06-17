@@ -17,7 +17,7 @@
                     <stringProp name="LoopController.loops">-1</stringProp>
                 </elementProp>
                 <intProp name="ThreadGroup.num_threads">100</intProp> <!-- Nombre d’utilisateurs -->
-                <intProp name="ThreadGroup.ramp_time">600</intProp> <!-- Temps de montée -->
+                <intProp name="ThreadGroup.ramp_time">300</intProp> <!-- Temps de montée -->
                 <longProp name="ThreadGroup.start_time">1677759923000</longProp>
                 <longProp name="ThreadGroup.end_time">1677759923000</longProp>
             </ThreadGroup>
