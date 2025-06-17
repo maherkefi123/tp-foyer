@@ -1,9 +1,9 @@
 FROM eclipse-temurin:17-jdk-alpine
 
 WORKDIR /app
+RUN rm -rf /app/*  # Supprime tout contenu existant dans /app
 
-COPY tp-foyer-5.0.0.jar app.jar
-
+COPY achat-image-1.0.0.jar .
 EXPOSE 8089
 
-CMD ["java", "-jar", "app.jar"]
+CMD ["java", "-jar", "achat-image-1.0.0.jar"]
